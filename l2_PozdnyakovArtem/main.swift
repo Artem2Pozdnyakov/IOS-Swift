@@ -38,6 +38,7 @@ var array = (0...100)
 var filted = array.filter{$0 % 2 != 0}
 var notFree = filted.filter{$0 % 3 != 0}
 print(notFree)
+//
 
 
 
