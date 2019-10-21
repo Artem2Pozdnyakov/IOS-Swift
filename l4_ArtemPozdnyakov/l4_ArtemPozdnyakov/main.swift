@@ -5,10 +5,9 @@
 
 import Foundation
 
-class Poperties{
-    enum EngineState: String {
-    case start = "Запущен"
-    case stop = "Заглушен"
+    enum EngineState {
+    case start
+    case stop
     }
 
     enum WindowState: String {
@@ -32,8 +31,8 @@ class Poperties{
     case close = "Закрыта"
     }
 
-}
 
+    
 class Car {
     
     var brand: String
@@ -50,9 +49,8 @@ class Car {
         self.filledTrunk = filledTrunk
     }
     
-    func actionEngine(engine: String){
-        self.engine = engine
-        print("Двигатель в Mercedes: " + engine)
+    func actionEngine(engine: EngineState){
+        EngineState.start
     }
 }
 
