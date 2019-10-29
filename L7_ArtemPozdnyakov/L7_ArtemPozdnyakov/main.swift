@@ -19,12 +19,15 @@ enum SearchError: Error{
     case notConected
     case notAccess
 }
+enum UnknownError: Error {
+    case unknown
+}
 struct Movie {
     var name: String
 }
 
 var connect = true
-var access = false
+var access = true
 
 class FilmsOnline {
     var collect = [Films(genre: "Horror", year: 2012, duration: 1.8, movie: Movie(name: "Dark")),
@@ -48,9 +51,8 @@ class FilmsOnline {
 
 
 var movi = FilmsOnline()
-
 do{
-    var result = try movi.searchFilms(name: "Dark")
+    var result = try movi.searchFilms(name: "Darc")
 }
 catch SearchError.notAccess  {
         print("Нет доступа к фильму")
@@ -61,6 +63,9 @@ catch SearchError.notConected {
 }
 catch SearchError.notItem {
         print("Такого фильма нет в базе")
+}
+catch {
+    print("Неизвестная ошибка")
 }
     
 
